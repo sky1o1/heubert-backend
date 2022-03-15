@@ -28,7 +28,7 @@ app.use(cors());
 app.use(cookieParser());
 
 // Mount routers
-app.use("/datas", dataRouter);
+app.use("/leads", dataRouter);
 
 app.use(errorHandler);
 

@@ -2,11 +2,11 @@ const connectDB = require("../../config/db");
 const ErrorResponse = require("../../utills/errorResponse");
 const asyncHandler = require("../../middleware/async");
 
-// @desc  Get all datas
-// @route  Get /datas
+// @desc  Get all leads
+// @route  Get /leads
 // @access  Public
 
-exports.getDatas = asyncHandler(async (req, res, next) => {
+exports.getLeads = asyncHandler(async (req, res, next) => {
   var sql = "SELECT * from datas";
   connectDB.query(sql, function (error, result) {
     if (error) {
@@ -20,11 +20,11 @@ exports.getDatas = asyncHandler(async (req, res, next) => {
   });
 });
 
-// @desc  Get datas by filter by leadOrigin and leadSource
-// @route  Get /datas/filter?leadOrigin=data&leadSource=data
+// @desc  Filter datas by leadOrigin and leadSource
+// @route  Get /leads/filter?leadOrigin=data&leadSource=data
 // @access  Public
 
-exports.getDatasByFilter = asyncHandler(async (req, res, next) => {
+exports.getLeadsByFilter = asyncHandler(async (req, res, next) => {
   var sql = `SELECT * from datas WHERE leadOrigin = ${req.query.leadOrigin} and leadSource = ${req.query.leadSource}`;
   connectDB.query(sql, function (error, result) {
     if (error) {
