@@ -1,8 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { getLeads, getLeadsByFilter } = require("../controllers/leads");
+const {
+  getLeads,
+  getLeadsByLeadSource,
+  getLeadsOriginByLeadSource,
+} = require("../controllers/leads");
 
 router.route("/").get(getLeads);
-router.route("/filter").get(getLeadsByFilter);
+router.route("/leadsource").get(getLeadsByLeadSource);
+router.route("/leadorigin").get(getLeadsOriginByLeadSource);
 
 module.exports = router;
